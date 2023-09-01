@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Feed from "./components/Feed";
+import useBreedsData, { UseBreedsDataType } from "./hooks/useBreedsData";
 
-function App() {
+export default function App() {
+  const {
+    search,
+    breeds,
+    isFetching,
+    sortedBreeds,
+    handleInputChange,
+    order,
+    setOrder,
+    orderBy,
+    setOrderBy
+  }: UseBreedsDataType = useBreedsData();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="Search Dogs By Breed" />
+      <Nav
+        search={search}
+        handleInputChange={handleInputChange}
+        order={order}
+        setOrder={setOrder}
+        orderBy={orderBy}
+        setOrderBy={setOrderBy}
+      />
+      <Feed
+        total={sortedBreeds?.length || 0}
+        data={breeds}
+        isFetching={isFetching}
+      />
     </div>
   );
 }
-
-export default App;

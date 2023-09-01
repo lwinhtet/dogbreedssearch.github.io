@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Chicle&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+:root {
+  /* --color-one: #fff5e4;
+  --color-two: #ffe3e1;
+  --color-three: #ffd1d1;
+  --color-four: #ff9494; */
+  /* --color-one: #AD8B73;
+  --color-two: #CEAB93;
+  --color-three: #E3CAA5;
+  --color-four: #FFFBE9; */
+  --color-one: #ffeddb;
+  --color-two: #edcdbb;
+  --color-three: #e3b7a0;
+  --color-four: #bf9270;
+  --color-five: #6c3428;
+  --color-six: #554f4a;
+
+  /* #FFEDDB
+  #EDCDBB
+  #E3B7A0
+  #BF9270 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px; 10px/16px = 62.5% */
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  color: #333;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgb(65, 65, 65);
+  border-radius: 2px;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background-color: var(--color-two);
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-family: "Chicle", cursive, "Open Sans", sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.16rem;
+  color: var(--color-five);
+  /* color: #fff; */
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Nav {
+  width: 100%;
+  padding: 5px;
+  background-color: var(--color-six);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.searchForm {
+  min-width: 320px;
+  padding: 0.7rem 1rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  min-height: 38px;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-six);
+  border-radius: 5px;
+  outline: none;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.breedSort {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.7rem 1rem;
+}
+
+.breedSort select {
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.breedSort select:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.numBreeds {
+  font-size: 1.4rem;
+  margin: 1.5rem;
+}
+
+.breedPost {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 20px;
+}
+
+.imageContainer {
+  flex: 0 1 400px;
+  border-radius: 2px;
+}
+
+.breedImage {
+  width: 100%;
+}
+
+.imageContainer,
+.breedInfo,
+.imagePlaceholder {
+  padding: 1.8rem 2.2rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.imagePlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 0 1 400px;
+  min-height: 300px;
+  border-radius: 2px;
+}
+
+.visibilityHidden {
+  flex-basis: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.breedInfo {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  flex: 0 2 350px;
+  max-width: 600px;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.breedInfo .name {
+  font-family: "Chicle", cursive, "Open Sans", sans-serif;
+  font-size: 2.5rem;
+  color: var(--color-five);
+}
+
+.bredFor span,
+.bredGroup span {
+  padding-left: 3px;
+}
+
+.loadingSpinner {
+  border: 3px solid var(--color-one);
+  border-top: 3px solid var(--color-three);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+/* .pin {
+  position: absolute;
+  top: -18px;
+  right: -5px;
+  width: 30px;
+} */
+
+.notFound,
+.loading {
+  color: var(--color-four);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchForm {
+    width: 100%;
+  }
+
+  .searchForm input[type="text"] {
+    max-width: 90%;
+  }
+
+  .breedPost {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .searchForm input[type="text"] {
+    max-width: 100%;
+  }
+}

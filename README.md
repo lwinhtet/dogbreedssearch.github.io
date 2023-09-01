@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Dog Breeds Search Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+This project, titled "Dog Breeds Search," was developed to fulfill the requirements of a coding assignment. The primary goal was to create a user-friendly web application for searching and displaying dog breeds. The project utilizes various technologies, including React, Redux, RTK-query, Typescript, and Jest for testing.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- **Redux**: Used for state management to ensure a smooth and efficient user experience.
+- **RTK-query**: Leveraged for fetching and caching data, especially considering the dynamic nature of user inputs.
+- **Typescript**: Employed for strong type checking and improved code quality.
+- **Jest**: Utilized for testing the application components to ensure reliability and correctness.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Breed Search**: The core functionality allows users to search for dog breeds based on their input.
+- **Debounced Input**: Implemented a debouncing mechanism that waits for user typing to pause for 1 second before initiating a data fetch. This enhances performance and reduces unnecessary API calls.
+- **Sorting Mechanism**: Provided sorting options for breeds based on attributes such as name, height, and lifespan. Users can choose between ascending and descending order.
+- **Styling**: Utilized a single "style.css" file for styling, as the project does not require a complex styling setup.
 
-### `npm test`
+## Implementation Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Caching with RTK-query**: Given the frequent changes in user input, the decision to use rtx-query was made to benefit from its caching mechanism, which saves caches for different user input searches.
+- **Data Fetching and Pagination**: The external API ("/breeds/search?q=poodle") did not support limit/pagination like the "/breeds" endpoint. To ensure consistent fetching and sorting, all breeds were initially fetched based on the user's search. The data was then sorted client-side and presented to the user in chunks of 10 for smooth infinite scrolling.
 
-### `npm run build`
+## Local Storage and Persistence
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **User's Sorting Preference**: The user's desired sorting type is saved in the local storage to maintain their preferred ordering across sessions.
+- **Search Input**: While sorting preference is saved, search input is not stored in local storage.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Loading Indicator
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Loading Display**: A loading indicator is displayed until images are fully loaded to provide a seamless user experience.
 
-### `npm run eject`
+## Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Comprehensive Testing**: All components have been thoroughly tested to ensure their correctness and reliability.
+- **Debounced Input Testing**: Specifically, the debounced input functionality has been tested in "useBreedsData.test.js."
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Learning and Resources
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Given my limited experience with testing, I sought to enhance my skills by studying and incorporating insights from external resources.
+- **External Resource**: I found the article "https://www.freecodecamp.org/news/how-to-write-unit-tests-in-react/" particularly helpful in gaining insights into writing unit tests in React.
+- **ChatGPT Assistance**: To solidify my understanding and overcome challenges, I engaged with ChatGPT for guidance on writing effective tests.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Conclusion
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Developing the "Dog Breeds Search" project was an great experience. The application successfully combines fetching, caching, sorting, and efficient user interaction. Testing all components helped ensure the robustness of the application.
