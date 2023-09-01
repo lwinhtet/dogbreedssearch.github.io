@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dogbreedssearch.github.io/static/css/main.6c8421ed.css",
+    "main.js": "/dogbreedssearch.github.io/static/js/main.a0aab134.js",
+    "index.html": "/dogbreedssearch.github.io/index.html",
+    "main.6c8421ed.css.map": "/dogbreedssearch.github.io/static/css/main.6c8421ed.css.map",
+    "main.a0aab134.js.map": "/dogbreedssearch.github.io/static/js/main.a0aab134.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c8421ed.css",
+    "static/js/main.a0aab134.js"
+  ]
+}
